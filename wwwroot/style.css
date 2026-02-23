@@ -9,9 +9,9 @@
     --sidebar: #071419;
     --surface: #0a1e25;
     --border: #0d2a33;
-    --text: #b2ebf2;
-    --muted: #2e4f59;
-    --dim: #37474f;
+    --text: #e0f7fa;
+    --muted: #4e9aaa;
+    --dim: #8ecfda;
     --accent: #00e5ff;
     --accent-g: #00bfa5;
     --accent-bg: rgba(0,229,255,0.06);
@@ -25,8 +25,8 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 15px;
+    line-height: 1.7;
     display: flex;
     min-height: 100vh;
 }
@@ -71,7 +71,7 @@ body {
 
     .sidebar-nav a {
         display: block;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         color: var(--dim);
         text-decoration: none;
@@ -112,7 +112,7 @@ body {
     font-size: 9px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #0d2a33;
+    color: var(--muted);
     margin-bottom: 2px;
 }
 
@@ -166,7 +166,7 @@ body {
     color: var(--dim);
     line-height: 1.8;
     max-width: 520px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ── SECTION ── */
@@ -231,10 +231,10 @@ body {
 }
 
 .project li {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--dim);
     margin-bottom: 4px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
     .project li::marker {
@@ -318,10 +318,10 @@ body {
 }
 
 .exp-item li {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--dim);
     margin-bottom: 4px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
     .exp-item li::marker {
