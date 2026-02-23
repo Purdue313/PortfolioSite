@@ -1,608 +1,873 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthew Purdue — Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Purdue — Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    :root {
-      --bg:       #111113;
-      --surface:  #18181b;
-      --border:   #27272a;
-      --text:     #e4e4e7;
-      --muted:    #71717a;
-      --accent:   #e879f9;
-      --accent2:  #38bdf8;
-    }
+        :root {
+            --bg: #f8f8f6;
+            --surface: #ffffff;
+            --border: #e5e5e0;
+            --text: #1a1a18;
+            --sub: #6b6b63;
+            --accent: #2563eb;
+            --accent-light: #eff4ff;
+            --tag-bg: #f0f0ec;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px 120px;
-    }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+        }
 
-    /* ── TOP BAR ── */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 0 0;
-      margin-bottom: 80px;
-    }
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background: rgba(248,248,246,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 48px;
+            height: 56px;
+        }
 
-    .nav-name {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 13px;
-      color: var(--muted);
-    }
+        .nav-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
 
-    .nav-links { display: flex; gap: 24px; }
-    .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
 
-    /* ── HERO ── */
-    .hero { margin-bottom: 80px; }
+            .nav-links a {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--sub);
+                text-decoration: none;
+                transition: color 0.15s;
+            }
 
-    .hero-eyebrow {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
+                .nav-links a:hover {
+                    color: var(--accent);
+                }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.5rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      color: #fff;
-    }
+        /* ── HERO ── */
+        .hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 48px 64px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 64px;
+            align-items: center;
+        }
 
-    .hero-bio {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 32px;
-      font-weight: 300;
-    }
+        .hero-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.6rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
 
-    .hero-meta a, .hero-meta span {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .hero-meta a:hover { color: var(--accent2); }
+        .hero-bio {
+            color: var(--sub);
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
 
-    /* ── SECTION ── */
-    .section { margin-bottom: 72px; }
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-    .section-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+        .btn {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.15s;
+            cursor: pointer;
+            border: none;
+        }
 
-    /* ── PROJECTS ── */
-    .project { padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .project:first-child { border-top: 1px solid var(--border); }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
 
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-      gap: 12px;
-    }
+            .btn-primary:hover {
+                background: #1d4ed8;
+            }
 
-    .project h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-    }
+        .btn-ghost {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
 
-    .project-context {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
+            .btn-ghost:hover {
+                border-color: #ccc;
+                background: #f3f3f0;
+            }
 
-    .project ul {
-      padding-left: 16px;
-      margin: 10px 0 14px;
-    }
-    .project li {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 5px;
-      font-weight: 300;
-    }
-    .project li::marker { color: var(--accent); }
+        /* hero right — quick info card */
+        .hero-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
 
-    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--accent2);
-      background: rgba(56,189,248,0.07);
-      border: 1px solid rgba(56,189,248,0.15);
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
+        .hero-card-row {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
 
-    .project-link {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 12px;
-      transition: color 0.15s;
-    }
-    .project-link:hover { color: var(--accent); }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
 
-    /* ── EXPERIENCE ── */
-    .exp-item { padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .exp-item:first-child { border-top: 1px solid var(--border); }
+        .info-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--sub);
+        }
 
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
+        .info-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
 
-    .exp-header h3 {
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-    }
+            .info-value a {
+                color: var(--accent);
+                text-decoration: none;
+            }
 
-    .exp-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
+                .info-value a:hover {
+                    text-decoration: underline;
+                }
 
-    .exp-company {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+        }
 
-    .exp-item ul { padding-left: 16px; }
-    .exp-item li {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 4px;
-      font-weight: 300;
-    }
-    .exp-item li::marker { color: var(--accent); }
+        /* ── LAYOUT WRAPPER ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 48px 80px;
+        }
 
-    /* ── SKILLS ── */
-    .skills-block { display: flex; flex-direction: column; gap: 18px; }
+        /* ── SECTION ── */
+        .section {
+            margin-bottom: 72px;
+        }
 
-    .skill-row {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      align-items: start;
-    }
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
 
-    .skill-row-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      padding-top: 3px;
-    }
+        /* ── PROJECTS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
 
-    .skill-row-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+        }
 
-    .skill-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
+            .project-card:hover {
+                box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+                border-color: #d0d0ca;
+                transform: translateY(-2px);
+            }
 
-    /* ── EDUCATION ── */
-    .edu-block {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-    }
+        .project-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
 
-    .edu-degree {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-    }
+        .project-badge {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
 
-    .edu-school {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
+        .project-meta-text {
+            font-size: 12px;
+            color: var(--sub);
+        }
 
-    .edu-detail {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-    }
+        .project-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
 
-    /* ── CONTACT ── */
-    .contact-list { display: flex; flex-direction: column; }
+        .project-card ul {
+            padding-left: 16px;
+            margin-bottom: 14px;
+        }
 
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .contact-item:first-child { border-top: 1px solid var(--border); }
+        .project-card li {
+            font-size: 13.5px;
+            color: var(--sub);
+            margin-bottom: 5px;
+        }
 
-    .contact-item-left { display: flex; flex-direction: column; gap: 2px; }
-    .contact-item-type {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .contact-item-value {
-      font-size: 14px;
-      color: var(--text);
-      font-weight: 400;
-    }
-    .contact-arrow {
-      font-size: 18px;
-      color: var(--border);
-      transition: color 0.15s, transform 0.15s;
-    }
-    .contact-item:hover .contact-arrow { color: var(--accent); transform: translate(2px, -2px); }
+            .project-card li::marker {
+                color: var(--accent);
+            }
 
-    /* ── FOOTER ── */
-    footer {
-      margin-top: 80px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-    }
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
 
-    @media (max-width: 500px) {
-      .nav-links { display: none; }
-      .project-header, .exp-header { flex-direction: column; gap: 2px; }
-      .skill-row { grid-template-columns: 1fr; gap: 8px; }
-      footer { flex-direction: column; gap: 4px; }
-    }
-  </style>
+        .tag {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--sub);
+            background: var(--tag-bg);
+            border-radius: 4px;
+            padding: 3px 8px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+            .project-link:hover {
+                text-decoration: underline;
+            }
+
+        /* ── EXPERIENCE ── */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 32px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+            .exp-item:first-child {
+                padding-top: 0;
+            }
+
+            .exp-item:last-child {
+                border-bottom: none;
+            }
+
+        .exp-date {
+            font-size: 12px;
+            color: var(--sub);
+            padding-top: 3px;
+            line-height: 1.5;
+        }
+
+        .exp-right h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .exp-company {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .exp-right ul {
+            padding-left: 16px;
+        }
+
+        .exp-right li {
+            font-size: 13.5px;
+            color: var(--sub);
+            margin-bottom: 4px;
+        }
+
+            .exp-right li::marker {
+                color: var(--accent);
+            }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .skills-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+            .skills-card h4 {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--accent);
+                margin-bottom: 14px;
+            }
+
+        .skill-pill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            padding: 7px 12px;
+            background: var(--tag-bg);
+            border-radius: 6px;
+        }
+
+        /* ── EDUCATION ── */
+        .edu-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .edu-degree {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .edu-school {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .edu-detail {
+            font-size: 13px;
+            color: var(--sub);
+        }
+
+        .edu-year {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--border);
+            line-height: 1;
+        }
+
+        /* ── CONTACT ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            transition: box-shadow 0.15s, border-color 0.15s;
+        }
+
+            .contact-card:hover {
+                box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+                border-color: #ccc;
+            }
+
+        .contact-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .contact-type {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--sub);
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .contact-arrow {
+            font-size: 20px;
+            color: var(--sub);
+            transition: transform 0.15s, color 0.15s;
+        }
+
+        .contact-card:hover .contact-arrow {
+            transform: translate(2px,-2px);
+            color: var(--accent);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 24px 48px;
+            font-size: 12px;
+            color: var(--sub);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 780px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                gap: 32px;
+            }
+
+            .hero-card {
+                display: none;
+            }
+
+            .container {
+                padding: 0 20px 60px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .edu-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .edu-year {
+                display: none;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <span class="nav-name">matthew purdue</span>
-    <div class="nav-links">
-      <a href="#projects">projects</a>
-      <a href="#experience">experience</a>
-      <a href="#skills">skills</a>
-      <a href="#contact">contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-eyebrow">open to internships · june 2026</div>
-    <h1>Software<br>Engineer</h1>
-    <p class="hero-bio">
-      Senior at Oregon Institute of Technology studying Software Engineering with a minor in Applied Mathematics.
-      Experienced in ML pipelines, mobile apps, and full-stack development.
-      Avid skier, biker, and hiker.
-    </p>
-    <div class="hero-meta">
-      <a href="mailto:mpurdue0312@gmail.com">mpurdue0312@gmail.com</a>
-      <span>·</span>
-      <span>(503) 871-1824</span>
-      <span>·</span>
-      <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank">linkedin</a>
-    </div>
-  </div>
-
-  <!-- PROJECTS -->
-  <div class="section" id="projects">
-    <div class="section-label">Projects</div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>ClearScan — X-Ray ML Analysis</h3>
-        <span class="project-context">Senior Year · Solo</span>
-      </div>
-      <ul>
-        <li>Trained a ResNet-50 CNN to detect anomalies in chest X-rays — <strong style="color:var(--text)">93% accuracy</strong></li>
-        <li>Managed full ML pipeline: model training, hyperparameter tuning, evaluation, and iteration</li>
-        <li>Produced complete SDLC docs: Use Case Models, Class Specification Models, Sequence Diagrams</li>
-      </ul>
-      <div class="tag-row">
-        <span class="tag">PyTorch</span>
-        <span class="tag">ResNet-50</span>
-        <span class="tag">Python</span>
-        <span class="tag">PySide6</span>
-      </div>
-      <a href="#" class="project-link">↗ view demo</a>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>Flight Path — Campus Navigation</h3>
-        <span class="project-context">Junior Year · Team of 5</span>
-      </div>
-      <ul>
-        <li>GPS navigation app for Oregon Tech with outdoor wayfinding and indoor floor plan navigation on Android</li>
-        <li>React Native frontend + Firebase backend integrating real-time map data and building floor plans</li>
-        <li>Full Agile methodology: 3-week sprints, rotating Scrum Master, features managed in Jira</li>
-      </ul>
-      <div class="tag-row">
-        <span class="tag">React Native</span>
-        <span class="tag">Firebase</span>
-        <span class="tag">Android</span>
-        <span class="tag">Jira</span>
-        <span class="tag">Agile</span>
-      </div>
-      <a href="#" class="project-link">↗ view demo</a>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>Cribbage Game</h3>
-        <span class="project-context">Solo · Summer 2025</span>
-      </div>
-      <ul>
-        <li>Independently designed a complete cribbage game with custom card deck and full game logic</li>
-      </ul>
-      <div class="tag-row">
-        <span class="tag">C#</span>
-        <span class="tag">UWP</span>
-      </div>
-      <a href="#" class="project-link">↗ view demo</a>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>Tip Calculator for Android</h3>
-        <span class="project-context">Solo · Summer 2024</span>
-      </div>
-      <ul>
-        <li>Published to Google Play with internal/external testing pipeline and version control lifecycle</li>
-        <li>Independently researched and learned Kotlin from documentation</li>
-      </ul>
-      <div class="tag-row">
-        <span class="tag">Kotlin</span>
-        <span class="tag">Android Studio</span>
-        <span class="tag">Google Play</span>
-      </div>
-      <a href="#" class="project-link">↗ view demo</a>
-    </div>
-
-  </div>
-
-  <!-- EXPERIENCE -->
-  <div class="section" id="experience">
-    <div class="section-label">Experience</div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Outdoor Program Equipment Manager</h3>
-        <span class="exp-date">Oct 2024 – Present</span>
-      </div>
-      <div class="exp-company">Oregon Institute of Technology · Klamath Falls, OR</div>
-      <ul>
-        <li>Directed logistics for 50+ person overnight outdoor trips</li>
-        <li>Built software to automate program outreach and statistical reporting</li>
-        <li>Initiated vendor partnerships saving thousands in equipment costs</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Orchard Laborer</h3>
-        <span class="exp-date">Spring 2023 – Present</span>
-      </div>
-      <div class="exp-company">Private Farm · Klamath Falls, OR</div>
-      <ul>
-        <li>Operated heavy machinery (auger, stump remover)</li>
-        <li>Managed irrigation installation and ongoing mechanical diagnosis and maintenance</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Delivery Driver</h3>
-        <span class="exp-date">Summer 2025</span>
-      </div>
-      <div class="exp-company">Fast Undercar · Salem, OR</div>
-      <ul>
-        <li>Accurate parts delivery to auto shops; money exchange and efficient routing</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Driver &amp; Pizza Maker</h3>
-        <span class="exp-date">Summer 2023 – 2024</span>
-      </div>
-      <div class="exp-company">Garlic Jim's · Salem, OR</div>
-      <ul>
-        <li>Updated and maintained point-of-sale system; new-hire training, cashiering, closing duties</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Stocker &amp; Ecommerce</h3>
-        <span class="exp-date">Summer 2022</span>
-      </div>
-      <div class="exp-company">Wilco Farm Store · Salem, OR</div>
-      <ul>
-        <li>Stocking, freight unloading, warehouse management, customer assistance</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- SKILLS -->
-  <div class="section" id="skills">
-    <div class="section-label">Skills</div>
-    <div class="skills-block">
-      <div class="skill-row">
-        <span class="skill-row-label">Languages</span>
-        <div class="skill-row-tags">
-          <span class="skill-tag">C / C++ / C#</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Kotlin</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">SQL / NoSQL</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">Java</span>
+    <nav>
+        <a href="#" class="nav-name">Matthew Purdue</a>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-row-label">Frameworks</span>
-        <div class="skill-row-tags">
-          <span class="skill-tag">React Native</span>
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">PySide6</span>
-          <span class="skill-tag">.NET Maui</span>
-          <span class="skill-tag">ASP.NET</span>
-          <span class="skill-tag">Django</span>
-          <span class="skill-tag">Gradle</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-row-label">Tools</span>
-        <div class="skill-row-tags">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Jira</span>
-          <span class="skill-tag">Azure DevOps</span>
-          <span class="skill-tag">Firebase</span>
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Google Play</span>
-          <span class="skill-tag">Power Automate</span>
-          <span class="skill-tag">Linux</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- EDUCATION -->
-  <div class="section" id="education">
-    <div class="section-label">Education</div>
-    <div class="edu-block">
-      <div class="edu-degree">B.S. Software Engineering Technology</div>
-      <div class="edu-school">Oregon Institute of Technology · Klamath Falls, OR</div>
-      <div class="edu-detail">Minor: Applied Mathematics &nbsp;·&nbsp; Sept 2022 – June 2026</div>
+    <!-- HERO -->
+    <div class="hero">
+        <div>
+            <span class="hero-label">Open to internships · June 2026</span>
+            <h1>Software<br>Engineer</h1>
+            <p class="hero-bio">
+                Senior at Oregon Institute of Technology studying Software Engineering with a minor in Applied Mathematics.
+                Experienced in full-stack development, ML pipelines, and mobile apps. Avid skier, biker, and hiker.
+            </p>
+            <div class="hero-actions">
+                <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank" class="btn btn-primary">View LinkedIn</a>
+                <a href="#contact" class="btn btn-ghost">Get in touch</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="hero-card-row">
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <span class="info-value"><a href="mailto:mpurdue0312@gmail.com">mpurdue0312@gmail.com</a></span>
+                </div>
+                <hr class="divider">
+                <div class="info-item">
+                    <span class="info-label">Phone</span>
+                    <span class="info-value">(503) 871-1824</span>
+                </div>
+                <hr class="divider">
+                <div class="info-item">
+                    <span class="info-label">Education</span>
+                    <span class="info-value">B.S. Software Engineering<br>Oregon Tech · 2026</span>
+                </div>
+                <hr class="divider">
+                <div class="info-item">
+                    <span class="info-label">Location</span>
+                    <span class="info-value">Klamath Falls, OR</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- CONTACT -->
-  <div class="section" id="contact">
-    <div class="section-label">Contact</div>
-    <div class="contact-list">
-      <a href="mailto:mpurdue0312@gmail.com" class="contact-item">
-        <div class="contact-item-left">
-          <span class="contact-item-type">Email</span>
-          <span class="contact-item-value">mpurdue0312@gmail.com</span>
+    <div class="container">
+
+        <!-- PROJECTS -->
+        <div class="section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">ML / AI</span>
+                        <span class="project-meta-text">Senior Year · Solo</span>
+                    </div>
+                    <h3>ClearScan — X-Ray Analysis</h3>
+                    <ul>
+                        <li>Trained a ResNet-50 CNN to detect anomalies in chest X-rays — <strong>93% accuracy</strong></li>
+                        <li>Managed full ML pipeline: training, hyperparameter tuning, evaluation, and iteration</li>
+                        <li>Produced complete SDLC docs: Use Case Models, Class Specs, Sequence Diagrams</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">ResNet-50</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">PySide6</span>
+                    </div>
+                    <a href="#" class="project-link">↗ View demo</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Mobile</span>
+                        <span class="project-meta-text">Junior Year · Team of 5</span>
+                    </div>
+                    <h3>Flight Path — Campus Navigation</h3>
+                    <ul>
+                        <li>GPS nav app for Oregon Tech with outdoor wayfinding and indoor floor plans on Android</li>
+                        <li>React Native frontend + Firebase backend with real-time map data integration</li>
+                        <li>Full Agile: 3-week sprints, rotating Scrum Master, Jira task management</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">Agile</span>
+                    </div>
+                    <a href="#" class="project-link">↗ View demo</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Desktop</span>
+                        <span class="project-meta-text">Solo · Summer 2025</span>
+                    </div>
+                    <h3>Cribbage Game</h3>
+                    <ul>
+                        <li>Independently designed a complete cribbage game with custom card deck and full game logic</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">C#</span>
+                        <span class="tag">UWP</span>
+                    </div>
+                    <a href="#" class="project-link">↗ View demo</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Mobile</span>
+                        <span class="project-meta-text">Solo · Summer 2024</span>
+                    </div>
+                    <h3>Tip Calculator for Android</h3>
+                    <ul>
+                        <li>Published to Google Play with internal/external testing pipeline and version control lifecycle</li>
+                        <li>Independently learned Kotlin from documentation</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">Google Play</span>
+                    </div>
+                    <a href="#" class="project-link">↗ View demo</a>
+                </div>
+
+            </div>
         </div>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="tel:5038711824" class="contact-item">
-        <div class="contact-item-left">
-          <span class="contact-item-type">Phone</span>
-          <span class="contact-item-value">(503) 871-1824</span>
+
+        <!-- EXPERIENCE -->
+        <div class="section" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="exp-list">
+
+                <div class="exp-item">
+                    <div class="exp-date">Oct 2024 – Present</div>
+                    <div class="exp-right">
+                        <h3>Outdoor Program Equipment Manager</h3>
+                        <div class="exp-company">Oregon Institute of Technology · Klamath Falls, OR</div>
+                        <ul>
+                            <li>Directed logistics for 50+ person overnight outdoor trips</li>
+                            <li>Built software to automate program outreach and statistical reporting</li>
+                            <li>Initiated vendor partnerships saving thousands in equipment costs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Spring 2023 – Present</div>
+                    <div class="exp-right">
+                        <h3>Orchard Laborer</h3>
+                        <div class="exp-company">Private Farm · Klamath Falls, OR</div>
+                        <ul>
+                            <li>Operated heavy machinery (auger, stump remover)</li>
+                            <li>Managed irrigation installation and ongoing mechanical diagnosis and maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Summer 2025</div>
+                    <div class="exp-right">
+                        <h3>Delivery Driver</h3>
+                        <div class="exp-company">Fast Undercar · Salem, OR</div>
+                        <ul>
+                            <li>Accurate parts delivery to auto shops; money exchange and efficient routing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Summer 2023 – 2024</div>
+                    <div class="exp-right">
+                        <h3>Driver &amp; Pizza Maker</h3>
+                        <div class="exp-company">Garlic Jim's · Salem, OR</div>
+                        <ul>
+                            <li>Updated and maintained point-of-sale system; new-hire training, cashiering, closing duties</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Summer 2022</div>
+                    <div class="exp-right">
+                        <h3>Stocker &amp; Ecommerce</h3>
+                        <div class="exp-company">Wilco Farm Store · Salem, OR</div>
+                        <ul>
+                            <li>Stocking, freight unloading, warehouse management, customer assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank" class="contact-item">
-        <div class="contact-item-left">
-          <span class="contact-item-type">LinkedIn</span>
-          <span class="contact-item-value">linkedin.com/in/matthew-purdue</span>
+
+        <!-- SKILLS -->
+        <div class="section" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h4>Languages</h4>
+                    <div class="skill-pill-list">
+                        <span class="skill-pill">C / C++ / C#</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Kotlin</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">SQL / NoSQL</span>
+                        <span class="skill-pill">Bash</span>
+                        <span class="skill-pill">Java (FX · EE)</span>
+                    </div>
+                </div>
+                <div class="skills-card">
+                    <h4>Frameworks &amp; Libraries</h4>
+                    <div class="skill-pill-list">
+                        <span class="skill-pill">React Native</span>
+                        <span class="skill-pill">PyTorch</span>
+                        <span class="skill-pill">PySide6</span>
+                        <span class="skill-pill">.NET Maui / ASP.NET</span>
+                        <span class="skill-pill">Django</span>
+                        <span class="skill-pill">Gradle</span>
+                        <span class="skill-pill">AWS (S3, CloudFront)</span>
+                    </div>
+                </div>
+                <div class="skills-card">
+                    <h4>Tools &amp; Platforms</h4>
+                    <div class="skill-pill-list">
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">Jira / Azure DevOps</span>
+                        <span class="skill-pill">Google Firebase</span>
+                        <span class="skill-pill">Google Play Console</span>
+                        <span class="skill-pill">Visual Studio</span>
+                        <span class="skill-pill">Power Automate</span>
+                        <span class="skill-pill">Linux</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="#" class="contact-item">
-        <div class="contact-item-left">
-          <span class="contact-item-type">YouTube</span>
-          <span class="contact-item-value">Project demos</span>
+
+        <!-- EDUCATION -->
+        <div class="section" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-card">
+                <div>
+                    <div class="edu-degree">B.S. Software Engineering Technology</div>
+                    <div class="edu-school">Oregon Institute of Technology · Klamath Falls, OR</div>
+                    <div class="edu-detail">Minor: Applied Mathematics &nbsp;·&nbsp; Sept 2022 – June 2026</div>
+                </div>
+                <div class="edu-year">2026</div>
+            </div>
         </div>
-        <span class="contact-arrow">↗</span>
-      </a>
+
+        <!-- CONTACT -->
+        <div class="section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-grid">
+                <a href="mailto:mpurdue0312@gmail.com" class="contact-card">
+                    <div class="contact-card-left">
+                        <span class="contact-type">Email</span>
+                        <span class="contact-value">mpurdue0312@gmail.com</span>
+                    </div>
+                    <span class="contact-arrow">↗</span>
+                </a>
+                <a href="tel:5038711824" class="contact-card">
+                    <div class="contact-card-left">
+                        <span class="contact-type">Phone</span>
+                        <span class="contact-value">(503) 871-1824</span>
+                    </div>
+                    <span class="contact-arrow">↗</span>
+                </a>
+                <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank" class="contact-card">
+                    <div class="contact-card-left">
+                        <span class="contact-type">LinkedIn</span>
+                        <span class="contact-value">linkedin.com/in/matthew-purdue</span>
+                    </div>
+                    <span class="contact-arrow">↗</span>
+                </a>
+                <a href="#" class="contact-card">
+                    <div class="contact-card-left">
+                        <span class="contact-type">YouTube</span>
+                        <span class="contact-value">Project demos</span>
+                    </div>
+                    <span class="contact-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+
     </div>
-  </div>
 
-  <footer>
-    <span>© 2026 Matthew Purdue</span>
-    <span>Oregon Institute of Technology</span>
-  </footer>
+    <footer>
+        <p>© 2026 Matthew Purdue &nbsp;·&nbsp; B.S. Software Engineering · Oregon Institute of Technology</p>
+    </footer>
 
 </body>
 </html>
