@@ -4,134 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Purdue — Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-        <div>
-            <div class="sidebar-name">Matthew<br>Purdue</div>
-            <div class="sidebar-title">Software Engineer</div>
-        </div>
-
-        <nav class="sidebar-nav">
-            <a href="#projects" class="active">Projects</a>
+    <nav>
+        <span class="nav-name">Matthew Purdue</span>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="sidebar-contact">
-            <div>
-                <div class="sidebar-contact-label">Email</div>
-                <a href="mailto:mpurdue0312@gmail.com">mpurdue0312@gmail.com</a>
-            </div>
-            <div>
-                <div class="sidebar-contact-label">Phone</div>
-                <a href="tel:5038711824">(503) 871-1824</a>
-            </div>
-            <div>
-                <div class="sidebar-contact-label">LinkedIn</div>
-                <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank">linkedin.com/in/matthew-purdue</a>
-            </div>
         </div>
-    </aside>
+    </nav>
 
-    <!-- MAIN -->
-    <main class="main">
+    <div class="container">
 
         <!-- HERO -->
-        <div class="hero">
-            <div class="hero-eyebrow">Open to internships · June 2026</div>
-            <h1>Software<br><span>Engineer</span></h1>
-            <p class="hero-bio">
-                Senior at Oregon Institute of Technology studying Software Engineering with a minor in Applied Mathematics.
-                Experienced in ML pipelines, mobile apps, and full-stack development. Avid skier, biker, and hiker.
-            </p>
-        </div>
+        <section class="hero">
+            <div class="hero-left">
+                <span class="hero-badge">Open to internships · June 2026</span>
+                <h1>Software<br><span>Engineer</span></h1>
+                <p class="hero-bio">Senior at Oregon Institute of Technology studying Software Engineering with a minor in Applied Mathematics. Experienced in full-stack development, ML pipelines, and mobile apps. Avid skier, biker, and hiker.</p>
+                <div class="hero-actions">
+                    <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank" class="btn-primary">View LinkedIn</a>
+                    <a href="#contact" class="btn-ghost">Get in touch</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-row">
+                    <span class="card-label">Email</span>
+                    <a href="mailto:mpurdue0312@gmail.com" class="card-value">mpurdue0312@gmail.com</a>
+                </div>
+                <div class="hero-card-divider"></div>
+                <div class="hero-card-row">
+                    <span class="card-label">Phone</span>
+                    <span class="card-value">(503) 871-1824</span>
+                </div>
+                <div class="hero-card-divider"></div>
+                <div class="hero-card-row">
+                    <span class="card-label">Education</span>
+                    <span class="card-value">B.S. Software Engineering<br>Oregon Tech · 2026</span>
+                </div>
+                <div class="hero-card-divider"></div>
+                <div class="hero-card-row">
+                    <span class="card-label">Location</span>
+                    <span class="card-value">Klamath Falls, OR</span>
+                </div>
+            </div>
+        </section>
 
         <!-- PROJECTS -->
-        <div class="section" id="projects">
-            <div class="section-label">Projects</div>
+        <section class="section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
 
-            <div class="project">
-                <div class="project-top">
-                    <h3>ClearScan — X-Ray ML Analysis</h3>
-                    <span class="project-meta">Senior Year · Solo</span>
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">ML / AI</span>
+                        <span class="project-meta">Senior Year · Solo</span>
+                    </div>
+                    <h3>ClearScan — X-Ray Analysis</h3>
+                    <ul>
+                        <li>Trained a ResNet-50 CNN to detect anomalies in chest X-rays — <strong class="highlight">93% accuracy</strong></li>
+                        <li>Managed full ML pipeline: model training, hyperparameter tuning, evaluation, and iteration</li>
+                        <li>Produced complete SDLC docs: Use Case Models, Class Specification Models, Sequence Diagrams</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">ResNet-50</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">PySide6</span>
+                    </div>
+                    <a href="#" class="project-link">↗ view demo</a>
                 </div>
-                <ul>
-                    <li>Trained a ResNet-50 CNN to detect anomalies in chest X-rays — <strong class="highlight">93% accuracy</strong></li>
-                    <li>Managed full ML pipeline: model training, hyperparameter tuning, evaluation, and iteration</li>
-                    <li>Produced complete SDLC docs: Use Case Models, Class Specification Models, Sequence Diagrams</li>
-                </ul>
-                <div class="tag-row">
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">ResNet-50</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">PySide6</span>
-                </div>
-                <a href="#" class="project-link">↗ view demo</a>
-            </div>
 
-            <div class="project">
-                <div class="project-top">
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Mobile</span>
+                        <span class="project-meta">Junior Year · Team of 5</span>
+                    </div>
                     <h3>Flight Path — Campus Navigation</h3>
-                    <span class="project-meta">Junior Year · Team of 5</span>
+                    <ul>
+                        <li>GPS navigation app for Oregon Tech with outdoor wayfinding and indoor floor plan navigation on Android</li>
+                        <li>React Native frontend + Firebase backend integrating real-time map data and building floor plans</li>
+                        <li>Full Agile: 3-week sprints, rotating Scrum Master, features managed in Jira</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Android</span>
+                        <span class="tag">Agile</span>
+                    </div>
+                    <a href="#" class="project-link">↗ view demo</a>
                 </div>
-                <ul>
-                    <li>GPS navigation app for Oregon Tech with outdoor wayfinding and indoor floor plan navigation on Android</li>
-                    <li>React Native frontend + Firebase backend integrating real-time map data and building floor plans</li>
-                    <li>Full Agile: 3-week sprints, rotating Scrum Master, features managed in Jira</li>
-                </ul>
-                <div class="tag-row">
-                    <span class="tag">React Native</span>
-                    <span class="tag">Firebase</span>
-                    <span class="tag">Android</span>
-                    <span class="tag">Jira</span>
-                    <span class="tag">Agile</span>
-                </div>
-                <a href="#" class="project-link">↗ view demo</a>
-            </div>
 
-            <div class="project">
-                <div class="project-top">
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Desktop</span>
+                        <span class="project-meta">Solo · Summer 2025</span>
+                    </div>
                     <h3>Cribbage Game</h3>
-                    <span class="project-meta">Solo · Summer 2025</span>
+                    <ul>
+                        <li>Independently designed a complete cribbage game with custom card deck and full game logic</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">C#</span>
+                        <span class="tag">UWP</span>
+                    </div>
+                    <a href="#" class="project-link">↗ view demo</a>
                 </div>
-                <ul>
-                    <li>Independently designed a complete cribbage game with custom card deck and full game logic</li>
-                </ul>
-                <div class="tag-row">
-                    <span class="tag">C#</span>
-                    <span class="tag">UWP</span>
-                </div>
-                <a href="#" class="project-link">↗ view demo</a>
-            </div>
 
-            <div class="project">
-                <div class="project-top">
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-badge">Mobile</span>
+                        <span class="project-meta">Solo · Summer 2024</span>
+                    </div>
                     <h3>Tip Calculator for Android</h3>
-                    <span class="project-meta">Solo · Summer 2024</span>
+                    <ul>
+                        <li>Published to Google Play with internal/external testing pipeline and version control lifecycle</li>
+                        <li>Independently researched and learned Kotlin from documentation</li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">Google Play</span>
+                    </div>
+                    <a href="#" class="project-link">↗ view demo</a>
                 </div>
-                <ul>
-                    <li>Published to Google Play with internal/external testing pipeline and version control lifecycle</li>
-                    <li>Independently researched and learned Kotlin from documentation</li>
-                </ul>
-                <div class="tag-row">
-                    <span class="tag">Kotlin</span>
-                    <span class="tag">Android Studio</span>
-                    <span class="tag">Google Play</span>
-                </div>
-                <a href="#" class="project-link">↗ view demo</a>
+
             </div>
-        </div>
+        </section>
 
         <!-- EXPERIENCE -->
-        <div class="section" id="experience">
-            <div class="section-label">Experience</div>
+        <section class="section" id="experience">
+            <h2 class="section-title">Experience</h2>
 
             <div class="exp-item">
                 <div class="exp-top">
@@ -190,11 +198,12 @@
                     <li>Stocking, freight unloading, warehouse management, customer assistance</li>
                 </ul>
             </div>
-        </div>
+
+        </section>
 
         <!-- SKILLS -->
-        <div class="section" id="skills">
-            <div class="section-label">Skills</div>
+        <section class="section" id="skills">
+            <h2 class="section-title">Skills</h2>
             <div class="skills-block">
                 <div class="skill-row">
                     <span class="skill-row-label">Languages</span>
@@ -234,21 +243,21 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- EDUCATION -->
-        <div class="section" id="education">
-            <div class="section-label">Education</div>
+        <section class="section" id="education">
+            <h2 class="section-title">Education</h2>
             <div class="edu-block">
                 <div class="edu-degree">B.S. Software Engineering Technology</div>
                 <div class="edu-school">Oregon Institute of Technology · Klamath Falls, OR</div>
                 <div class="edu-detail">Minor: Applied Mathematics &nbsp;·&nbsp; Sept 2022 – June 2026</div>
             </div>
-        </div>
+        </section>
 
         <!-- CONTACT -->
-        <div class="section" id="contact">
-            <div class="section-label">Contact</div>
+        <section class="section" id="contact">
+            <h2 class="section-title">Contact</h2>
             <div class="contact-list">
                 <a href="mailto:mpurdue0312@gmail.com" class="contact-item">
                     <div class="contact-left">
@@ -279,34 +288,29 @@
                     <span class="contact-arrow">↗</span>
                 </a>
             </div>
-        </div>
+        </section>
 
         <footer>
             <span>© 2026 Matthew Purdue</span>
             <span>Oregon Institute of Technology</span>
         </footer>
 
-    </main>
+    </div>
 
     <script>
-        // Highlight active nav link on scroll
-        const sections = document.querySelectorAll('.section, .hero');
-        const navLinks = document.querySelectorAll('.sidebar-nav a');
-
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + entry.target.id) {
-                            link.classList.add('active');
-                        }
+                        if (link.getAttribute('href') === '#' + entry.target.id) link.classList.add('active');
                     });
                 }
             });
         }, { threshold: 0.3 });
-
-        sections.forEach(s => { if (s.id) observer.observe(s); });
+        sections.forEach(s => observer.observe(s));
     </script>
 
 </body>
