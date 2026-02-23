@@ -241,6 +241,10 @@ body {
         color: var(--accent-g);
     }
 
+.highlight {
+    color: #b2ebf2;
+}
+
 .tag-row {
     display: flex;
     flex-wrap: wrap;
