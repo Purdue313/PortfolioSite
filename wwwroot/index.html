@@ -238,6 +238,11 @@
                 transform: translateY(-2px);
             }
 
+        a.project-card {
+            cursor: pointer;
+            color: inherit;
+        }
+
         .project-card-top {
             display: flex;
             justify-content: space-between;
@@ -609,7 +614,7 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
 
-                <div class="project-card">
+                <a href="project-clearscan.html" class="project-card" style="text-decoration:none;display:block;">
                     <div class="project-card-top">
                         <span class="project-badge">ML / AI</span>
                         <span class="project-meta">Senior Year · Solo</span>
@@ -626,10 +631,10 @@
                         <span class="tag">Python</span>
                         <span class="tag">PySide6</span>
                     </div>
-                    <a href="#" class="project-link">↗ view demo (under construction)</a>
-                </div>
+                    <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="project-link" onclick="event.stopPropagation()">↗ view demo</a>
+                </a>
 
-                <div class="project-card">
+                <a href="project-flightpath.html" class="project-card" style="text-decoration:none;display:block;">
                     <div class="project-card-top">
                         <span class="project-badge">Mobile</span>
                         <span class="project-meta">Junior Year · Team of 5</span>
@@ -646,10 +651,10 @@
                         <span class="tag">Android</span>
                         <span class="tag">Agile</span>
                     </div>
-                    <a href="#" class="project-link">↗ view demo (under construction)</a>
-                </div>
+                    <a href="#" class="project-link" onclick="event.stopPropagation()">↗ view demo (under construction)</a>
+                </a>
 
-                <div class="project-card">
+                <a href="project-cribbage.html" class="project-card" style="text-decoration:none;display:block;">
                     <div class="project-card-top">
                         <span class="project-badge">Desktop</span>
                         <span class="project-meta">Solo · Summer 2025</span>
@@ -662,10 +667,10 @@
                         <span class="tag">C#</span>
                         <span class="tag">UWP</span>
                     </div>
-                    <a href="#" class="project-link">↗ view demo (under construction)</a>
-                </div>
+                    <a href="#" class="project-link" onclick="event.stopPropagation()">↗ view demo (under construction)</a>
+                </a>
 
-                <div class="project-card">
+                <a href="project-tipcalc.html" class="project-card" style="text-decoration:none;display:block;">
                     <div class="project-card-top">
                         <span class="project-badge">Mobile</span>
                         <span class="project-meta">Solo · Summer 2024</span>
@@ -680,8 +685,8 @@
                         <span class="tag">Android Studio</span>
                         <span class="tag">Google Play</span>
                     </div>
-                    <a href="#" class="project-link">↗ view demo (under construction)</a>
-                </div>
+                    <a href="#" class="project-link" onclick="event.stopPropagation()">↗ view demo (under construction)</a>
+                </a>
 
             </div>
         </section>
@@ -793,7 +798,6 @@
                 </div>
             </div>
         </section>-->
-
         <!-- EDUCATION -->
         <section class="section" id="education">
             <h2 class="section-title">Education</h2>
@@ -830,10 +834,10 @@
                     </div>
                     <span class="contact-arrow">↗</span>
                 </a>
-                <a href="#" class="contact-item">
+                <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="contact-item">
                     <div class="contact-left">
                         <span class="contact-type">YouTube</span>
-                        <span class="contact-value">Project Demos (under construction)</span>
+                        <span class="contact-value">Project Demos</span>
                     </div>
                     <span class="contact-arrow">↗</span>
                 </a>
@@ -851,3 +855,15 @@
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-links a');
         const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
