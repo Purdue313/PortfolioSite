@@ -215,9 +215,15 @@
             .media-item img, .media-item video {
                 width: 100%;
                 display: block;
-                aspect-ratio: 16/9;
-                object-fit: cover;
+                height: auto;
+                object-fit: contain;
+                cursor: zoom-in;
+                transition: opacity 0.15s;
             }
+
+                .media-item img:hover {
+                    opacity: 0.88;
+                }
 
         .media-caption {
             padding: 12px 16px;
@@ -286,6 +292,47 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+            .lightbox.open {
+                display: flex;
+            }
+
+            .lightbox img {
+                max-width: 92vw;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 0 80px rgba(0,229,255,0.1);
+            }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 28px;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1;
+            transition: color 0.15s;
+        }
+
+            .lightbox-close:hover {
+                color: var(--accent);
+            }
     </style>
 </head>
 <body>
@@ -382,6 +429,36 @@
         </div>
 
     </div>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.media-item img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+    });
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+    </script>
 
 </body>
 </html>

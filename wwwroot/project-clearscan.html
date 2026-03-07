@@ -120,6 +120,17 @@
             margin-bottom: 28px;
         }
 
+        .inline-link {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,229,255,0.3);
+            transition: border-color 0.15s;
+        }
+
+            .inline-link:hover {
+                border-color: var(--accent);
+            }
+
         .meta-row {
             display: flex;
             flex-wrap: wrap;
@@ -217,14 +228,23 @@
             overflow: hidden;
         }
 
-            .media-item img, .media-item video, .media-item iframe {
+            .media-item img, .media-item video {
+                width: 100%;
+                display: block;
+                height: auto;
+                object-fit: contain;
+                cursor: zoom-in;
+                transition: opacity 0.15s;
+            }
+
+                .media-item img:hover {
+                    opacity: 0.88;
+                }
+
+            .media-item iframe {
                 width: 100%;
                 display: block;
                 aspect-ratio: 16/9;
-                object-fit: cover;
-            }
-
-            .media-item iframe {
                 border: none;
             }
 
@@ -251,6 +271,47 @@
             .img-placeholder span {
                 font-family: 'IBM Plex Mono', monospace;
                 font-size: 11px;
+            }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+            .lightbox.open {
+                display: flex;
+            }
+
+            .lightbox img {
+                max-width: 92vw;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 0 80px rgba(0,229,255,0.1);
+            }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 28px;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 1;
+            transition: color 0.15s;
+        }
+
+            .lightbox-close:hover {
+                color: var(--accent);
             }
 
         /* Feature list */
@@ -346,9 +407,8 @@
             <span class="project-badge">ML / AI</span>
             <h1>ClearScan —<br><span>X-Ray Analysis</span></h1>
             <p class="project-desc">
-                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI. Trained off of Standford University's CheXpert dataset.
+                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI. Trained on Stanford University's <a href="https://stanfordmlgroup.github.io/competitions/chexpert/" target="_blank" class="inline-link">CheXpert dataset</a>.
             </p>
-            <a href="https://aimi.stanford.edu/datasets/chexpert-chest-x-rays" target="_blank" class="project-link">↗ dataset</a>
             <div class="meta-row">
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
@@ -360,7 +420,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Type</span>
-                    <span class="meta-value">Desktop App</span>
+                    <span class="meta-value">Desktop App / ML</span>
                 </div>
             </div>
             <div class="tag-row" style="margin-bottom:24px;">
@@ -378,7 +438,7 @@
             <div class="media-grid wide">
                 <div class="media-item">
                     <iframe src="https://www.youtube.com/embed/x3kdy39YmrE" allowfullscreen></iframe>
-                    <div class="media-caption">Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
+                    <div class="media-caption">// Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
                 </div>
             </div>
         </div>
@@ -396,8 +456,8 @@
                     <div class="stat-label">CNN Architecture</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num">PySide6 / PyTorch</div>
-                    <div class="stat-label">Frameworks</div>
+                    <div class="stat-num">Full</div>
+                    <div class="stat-label">SDLC Documentation</div>
                 </div>
             </div>
         </div>
@@ -407,22 +467,37 @@
             <h2 class="section-title">Screenshots & Previews</h2>
             <div class="media-grid">
                 <div class="media-item">
-                    <img src="thumbnailClearScan.png" />
-                    <div class="media-caption">X-ray upload interface and heatmap detection</div>
+                    <div class="img-placeholder">
+                        <span>📷 screenshot_ui.png</span>
+                        <span>Add your screenshot here</span>
+                    </div>
+                    <div class="media-caption">// Application UI — X-ray upload interface</div>
                 </div>
                 <div class="media-item">
-                    <img src="trainingValidation.png" />
-                    <div class="media-caption">Training loss & validation loss over epochs for the first round of training</div>
+                    <div class="img-placeholder">
+                        <span>🎞 demo.gif</span>
+                        <span>Add a GIF of the app in action</span>
+                    </div>
+                    <div class="media-caption">// Live prediction output with confidence score</div>
                 </div>
                 <div class="media-item">
-                    <img src="imageUploadSequenceDiagram.png"
-                    <div class="media-caption">Sequence diagram depicting the states after an image is uploaded</div>
+                    <div class="img-placeholder">
+                        <span>📊 training_curves.png</span>
+                        <span>Add training/validation loss chart</span>
+                    </div>
+                    <div class="media-caption">// Training accuracy & loss over epochs</div>
                 </div>
                 <div class="media-item">
-                    <img src="clearScanumlDiagram.png"
-                    <div class="media-caption">Class UML diagram for ClearScan</div>
+                    <div class="img-placeholder">
+                        <span>🗂 model_arch.png</span>
+                        <span>Add architecture or class diagram</span>
+                    </div>
+                    <div class="media-caption">// ResNet-50 fine-tuned architecture</div>
                 </div>
             </div>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:16px;">
+                // To add images/GIFs: replace the placeholder divs above with &lt;img src="your-file.png"&gt; or &lt;img src="your-gif.gif"&gt;
+            </p>
         </div>
 
         <!-- FEATURES -->
@@ -434,12 +509,12 @@
                     <p>Leveraged transfer learning on a pre-trained ResNet-50 model, fine-tuned on a labeled chest X-ray dataset. Achieved <span class="highlight">93% classification accuracy</span> through iterative hyperparameter tuning.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>Full Machine Learning Pipeline</h4>
+                    <h4>Full ML Pipeline</h4>
                     <p>Managed every stage independently: data preprocessing and augmentation, model training, validation, hyperparameter search, and evaluation. No pre-built AutoML solutions.</p>
                 </div>
                 <div class="feature-item">
                     <h4>PySide6 Desktop GUI</h4>
-                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference by diagnosing, view annotated results with confidence scores, and enter items into a schedule. All without needing any knowledge of machine learning algorithms .</p>
+                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference, and view annotated results with confidence scores — all without any ML background needed.</p>
                 </div>
                 <div class="feature-item">
                     <h4>Complete SDLC Documentation</h4>
@@ -449,6 +524,35 @@
         </div>
 
     </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.media-item img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+    });
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+    </script>
 
 </body>
 </html>
