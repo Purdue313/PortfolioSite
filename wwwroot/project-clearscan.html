@@ -210,7 +210,6 @@
             margin-bottom: 28px;
         }
 
-        /* Media gallery */
         .media-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -228,6 +227,7 @@
             overflow: hidden;
         }
 
+            /* Natural image size — no forced cropping */
             .media-item img, .media-item video {
                 width: 100%;
                 display: block;
@@ -256,22 +256,64 @@
             border-top: 1px solid var(--border);
         }
 
-        /* Image placeholder */
-        .img-placeholder {
-            background: var(--surface2);
-            aspect-ratio: 16/9;
+        .feature-list {
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
-            gap: 8px;
-            color: var(--muted);
+            gap: 20px;
         }
 
-            .img-placeholder span {
-                font-family: 'IBM Plex Mono', monospace;
-                font-size: 11px;
+        .feature-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+        }
+
+            .feature-item h4 {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text);
+                margin-bottom: 6px;
             }
+
+            .feature-item p {
+                font-size: 13.5px;
+                color: var(--dim);
+            }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
 
         /* Lightbox */
         .lightbox {
@@ -314,67 +356,6 @@
                 color: var(--accent);
             }
 
-        /* Feature list */
-        .feature-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .feature-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px 24px;
-        }
-
-            .feature-item h4 {
-                font-size: 14px;
-                font-weight: 600;
-                color: var(--text);
-                margin-bottom: 6px;
-            }
-
-            .feature-item p {
-                font-size: 13.5px;
-                color: var(--dim);
-            }
-
-            .feature-item .highlight {
-                color: var(--accent);
-                font-weight: 600;
-            }
-
-        /* Stats row */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px 24px;
-            text-align: center;
-        }
-
-        .stat-num {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 6px;
-        }
-
         @media (max-width: 700px) {
             nav {
                 padding: 0 20px;
@@ -407,7 +388,7 @@
             <span class="project-badge">ML / AI</span>
             <h1>ClearScan —<br><span>X-Ray Analysis</span></h1>
             <p class="project-desc">
-                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI. Trained on Stanford University's <a href="https://stanfordmlgroup.github.io/competitions/chexpert/" target="_blank" class="inline-link">CheXpert dataset</a>.
+                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI. Trained on Stanford University's <a href="https://aimi.stanford.edu/datasets/chexpert-chest-x-rays" target="_blank" class="inline-link">CheXpert dataset</a>.
             </p>
             <div class="meta-row">
                 <div class="meta-item">
@@ -420,7 +401,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Type</span>
-                    <span class="meta-value">Desktop App / ML</span>
+                    <span class="meta-value">Desktop App</span>
                 </div>
             </div>
             <div class="tag-row" style="margin-bottom:24px;">
@@ -438,7 +419,7 @@
             <div class="media-grid wide">
                 <div class="media-item">
                     <iframe src="https://www.youtube.com/embed/x3kdy39YmrE" allowfullscreen></iframe>
-                    <div class="media-caption">// Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
+                    <div class="media-caption">Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
                 </div>
             </div>
         </div>
@@ -456,48 +437,33 @@
                     <div class="stat-label">CNN Architecture</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num">Full</div>
-                    <div class="stat-label">SDLC Documentation</div>
+                    <div class="stat-num">PySide6 / PyTorch</div>
+                    <div class="stat-label">Frameworks</div>
                 </div>
             </div>
         </div>
 
-        <!-- SCREENSHOTS / GIFS -->
+        <!-- SCREENSHOTS -->
         <div class="section">
             <h2 class="section-title">Screenshots & Previews</h2>
             <div class="media-grid">
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>📷 screenshot_ui.png</span>
-                        <span>Add your screenshot here</span>
-                    </div>
-                    <div class="media-caption">// Application UI — X-ray upload interface</div>
+                    <img src="thumbnailClearScan.png" alt="X-ray upload interface and heatmap detection" />
+                    <div class="media-caption">X-ray upload interface and heatmap detection</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>🎞 demo.gif</span>
-                        <span>Add a GIF of the app in action</span>
-                    </div>
-                    <div class="media-caption">// Live prediction output with confidence score</div>
+                    <img src="trainingValidation.png" alt="Training loss and validation loss over epochs" />
+                    <div class="media-caption">Training loss & validation loss over epochs for the first round of training</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>📊 training_curves.png</span>
-                        <span>Add training/validation loss chart</span>
-                    </div>
-                    <div class="media-caption">// Training accuracy & loss over epochs</div>
+                    <img src="imageUploadSequenceDiagram.png" alt="Sequence diagram for image upload" />
+                    <div class="media-caption">Sequence diagram depicting the states after an image is uploaded</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>🗂 model_arch.png</span>
-                        <span>Add architecture or class diagram</span>
-                    </div>
-                    <div class="media-caption">// ResNet-50 fine-tuned architecture</div>
+                    <img src="clearScanumlDiagram.png" alt="Class UML diagram for ClearScan" />
+                    <div class="media-caption">Class UML diagram for ClearScan</div>
                 </div>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:16px;">
-                // To add images/GIFs: replace the placeholder divs above with &lt;img src="your-file.png"&gt; or &lt;img src="your-gif.gif"&gt;
-            </p>
         </div>
 
         <!-- FEATURES -->
@@ -509,12 +475,12 @@
                     <p>Leveraged transfer learning on a pre-trained ResNet-50 model, fine-tuned on a labeled chest X-ray dataset. Achieved <span class="highlight">93% classification accuracy</span> through iterative hyperparameter tuning.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>Full ML Pipeline</h4>
+                    <h4>Full Machine Learning Pipeline</h4>
                     <p>Managed every stage independently: data preprocessing and augmentation, model training, validation, hyperparameter search, and evaluation. No pre-built AutoML solutions.</p>
                 </div>
                 <div class="feature-item">
                     <h4>PySide6 Desktop GUI</h4>
-                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference, and view annotated results with confidence scores — all without any ML background needed.</p>
+                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference by diagnosing, view annotated results with confidence scores, and enter items into a schedule. All without needing any knowledge of machine learning algorithms.</p>
                 </div>
                 <div class="feature-item">
                     <h4>Complete SDLC Documentation</h4>
@@ -532,26 +498,26 @@
     </div>
 
     <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
-    document.querySelectorAll('.media-item img').forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.classList.add('open');
+        document.querySelectorAll('.media-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('open');
+            });
         });
-    });
 
-    document.getElementById('lightbox-close').addEventListener('click', () => {
-        lightbox.classList.remove('open');
-    });
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) lightbox.classList.remove('open');
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') lightbox.classList.remove('open');
-    });
+        document.getElementById('lightbox-close').addEventListener('click', () => {
+            lightbox.classList.remove('open');
+        });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('open');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') lightbox.classList.remove('open');
+        });
     </script>
 
 </body>
