@@ -243,6 +243,24 @@
             color: inherit;
         }
 
+        .card-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 6px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+
+            .card-demo-btn:hover {
+                opacity: 0.85;
+            }
+
         .project-card-top {
             display: flex;
             justify-content: space-between;
@@ -631,7 +649,9 @@
                         <span class="tag">Python</span>
                         <span class="tag">PySide6</span>
                     </div>
-                    <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="project-link" onclick="event.stopPropagation()">↗ view demo</a>
+                    <div style="margin-top:16px;">
+                        <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="card-demo-btn" onclick="event.stopPropagation()">▶ View Demo</a>
+                    </div>
                 </a>
 
                 <div class="project-card">
