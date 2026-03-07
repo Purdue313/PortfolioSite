@@ -346,8 +346,9 @@
             <span class="project-badge">ML / AI</span>
             <h1>ClearScan —<br><span>X-Ray Analysis</span></h1>
             <p class="project-desc">
-                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI.
+                A desktop application powered by a ResNet-50 convolutional neural network that detects anomalies in chest X-rays with 93% accuracy. Built end-to-end as a senior year solo project, covering the full ML pipeline from data preprocessing to a polished GUI. Trained off of Standford University's CheXpert dataset.
             </p>
+            <a href="https://aimi.stanford.edu/datasets/chexpert-chest-x-rays" target="_blank" class="btn-demo">Dataset</a>
             <div class="meta-row">
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
@@ -359,7 +360,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Type</span>
-                    <span class="meta-value">Desktop App / ML</span>
+                    <span class="meta-value">Desktop App</span>
                 </div>
             </div>
             <div class="tag-row" style="margin-bottom:24px;">
@@ -377,7 +378,7 @@
             <div class="media-grid wide">
                 <div class="media-item">
                     <iframe src="https://www.youtube.com/embed/x3kdy39YmrE" allowfullscreen></iframe>
-                    <div class="media-caption">// Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
+                    <div class="media-caption">Full walkthrough of ClearScan detecting chest X-ray anomalies</div>
                 </div>
             </div>
         </div>
@@ -395,8 +396,8 @@
                     <div class="stat-label">CNN Architecture</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num">Full</div>
-                    <div class="stat-label">SDLC Documentation</div>
+                    <div class="stat-num">PySide6 / PyTorch</div>
+                    <div class="stat-label">Frameworks</div>
                 </div>
             </div>
         </div>
@@ -406,37 +407,22 @@
             <h2 class="section-title">Screenshots & Previews</h2>
             <div class="media-grid">
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>📷 screenshot_ui.png</span>
-                        <span>Add your screenshot here</span>
-                    </div>
-                    <div class="media-caption">// Application UI — X-ray upload interface</div>
+                    <img src="thumbnailClearScan.png" />
+                    <div class="media-caption">X-ray upload interface and heatmap detection</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>🎞 demo.gif</span>
-                        <span>Add a GIF of the app in action</span>
-                    </div>
-                    <div class="media-caption">// Live prediction output with confidence score</div>
+                    <img src="trainingValidation.png" />
+                    <div class="media-caption">Training loss & validation loss over epochs for the first round of training</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>📊 training_curves.png</span>
-                        <span>Add training/validation loss chart</span>
-                    </div>
-                    <div class="media-caption">// Training accuracy & loss over epochs</div>
+                    <img src="imageUploadSequenceDiagram.png"
+                    <div class="media-caption">Sequence diagram depicting the states after an image is uploaded</div>
                 </div>
                 <div class="media-item">
-                    <div class="img-placeholder">
-                        <span>🗂 model_arch.png</span>
-                        <span>Add architecture or class diagram</span>
-                    </div>
-                    <div class="media-caption">// ResNet-50 fine-tuned architecture</div>
+                    <img src="clearScanumlDiagram.png"
+                    <div class="media-caption">Class UML diagram for ClearScan</div>
                 </div>
             </div>
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:16px;">
-                // To add images/GIFs: replace the placeholder divs above with &lt;img src="your-file.png"&gt; or &lt;img src="your-gif.gif"&gt;
-            </p>
         </div>
 
         <!-- FEATURES -->
@@ -448,12 +434,12 @@
                     <p>Leveraged transfer learning on a pre-trained ResNet-50 model, fine-tuned on a labeled chest X-ray dataset. Achieved <span class="highlight">93% classification accuracy</span> through iterative hyperparameter tuning.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>Full ML Pipeline</h4>
+                    <h4>Full Machine Learning Pipeline</h4>
                     <p>Managed every stage independently: data preprocessing and augmentation, model training, validation, hyperparameter search, and evaluation. No pre-built AutoML solutions.</p>
                 </div>
                 <div class="feature-item">
                     <h4>PySide6 Desktop GUI</h4>
-                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference, and view annotated results with confidence scores — all without any ML background needed.</p>
+                    <p>Built a clean desktop interface using PySide6 allowing users to upload X-ray images, run inference by diagnosing, view annotated results with confidence scores, and enter items into a schedule. All without needing any knowledge of machine learning algorithms .</p>
                 </div>
                 <div class="feature-item">
                     <h4>Complete SDLC Documentation</h4>
