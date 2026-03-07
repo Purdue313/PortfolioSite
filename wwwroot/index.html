@@ -231,6 +231,9 @@
             border-radius: 12px;
             padding: 24px;
             transition: border-color 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
             .project-card:hover {
@@ -244,6 +247,9 @@
         }
 
         .card-demo-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -260,6 +266,12 @@
             .card-demo-btn:hover {
                 opacity: 0.85;
             }
+
+        .card-bottom {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 14px;
+        }
 
         .project-card-top {
             display: flex;
@@ -298,6 +310,7 @@
         .project-card ul {
             padding-left: 16px;
             margin-bottom: 14px;
+            flex: 1;
         }
 
         .project-card li {
@@ -336,7 +349,8 @@
             color: var(--muted);
             text-decoration: none;
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 14px;
+            align-self: flex-end;
             transition: color 0.15s;
         }
 
@@ -649,9 +663,7 @@
                         <span class="tag">Python</span>
                         <span class="tag">PySide6</span>
                     </div>
-                    <div style="margin-top:16px;">
-                        <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="card-demo-btn" onclick="event.stopPropagation()">▶ View Demo</a>
-                    </div>
+                    <a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="project-link" onclick="event.stopPropagation()">↗ view demo</a>
                 </a>
 
                 <div class="project-card">
@@ -671,7 +683,7 @@
                         <span class="tag">Android</span>
                         <span class="tag">Agile</span>
                     </div>
-                    <a href="#" class="project-link" onclick="event.stopPropagation()">↗ view demo (under construction)</a>
+                    <a href="#" class="project-link">↗ view demo (under construction)</a>
                 </div>
 
                 <div class="project-card">
