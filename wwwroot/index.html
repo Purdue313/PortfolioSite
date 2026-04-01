@@ -130,6 +130,7 @@
         .hero-actions {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -246,33 +247,6 @@
             color: inherit;
         }
 
-        .card-demo-btn {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 7px 16px;
-            border-radius: 6px;
-            background: var(--accent);
-            color: var(--bg);
-            text-decoration: none;
-            transition: opacity 0.15s;
-        }
-
-            .card-demo-btn:hover {
-                opacity: 0.85;
-            }
-
-        .card-bottom {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 14px;
-        }
-
         .project-card-top {
             display: flex;
             justify-content: space-between;
@@ -342,21 +316,6 @@
             padding: 3px 8px;
             border-radius: 3px;
         }
-
-        .project-link {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
-            color: var(--muted);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 14px;
-            align-self: flex-end;
-            transition: color 0.15s;
-        }
-
-            .project-link:hover {
-                color: var(--accent);
-            }
 
         .exp-item {
             padding: 24px 0;
@@ -484,6 +443,42 @@
             color: var(--muted);
         }
 
+        /* RESUME SECTION */
+        .resume-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .resume-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .resume-hint {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .resume-embed {
+            width: 100%;
+            height: 860px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+            .resume-embed iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 12px;
+            }
+
+        /* CONTACT */
         .contact-list {
             display: flex;
             flex-direction: column;
@@ -586,6 +581,16 @@
                 gap: 10px;
             }
 
+            .resume-card {
+                padding: 24px 20px;
+            }
+
+            .resume-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
             footer {
                 flex-direction: column;
                 gap: 4px;
@@ -600,8 +605,9 @@
         <div class="nav-links">
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
-        </div>  
+        </div>
     </nav>
 
     <div class="container">
@@ -614,6 +620,7 @@
                 <p class="hero-bio">Senior at Oregon Institute of Technology studying Software Engineering with a minor in Applied Mathematics. Experienced in full-stack development, ML pipelines, and mobile apps. Avid skier, biker, and hiker.</p>
                 <div class="hero-actions">
                     <a href="https://www.linkedin.com/in/matthew-purdue" target="_blank" class="btn-primary">View LinkedIn</a>
+                    <a href="#resume" class="btn-ghost">View Resume</a>
                     <a href="#contact" class="btn-ghost">Get in touch</a>
                 </div>
             </div>
@@ -630,7 +637,7 @@
                 <div class="hero-card-divider"></div>
                 <div class="hero-card-row">
                     <span class="card-label">Education</span>
-                    <span class="card-value">B.S. Software Engineering<br>Oregon Tech · 2026<br/>Dean's List<br /></span>
+                    <span class="card-value">B.S. Software Engineering<br>Oregon Tech · 2026<br />Dean's List<br /></span>
                 </div>
                 <div class="hero-card-divider"></div>
                 <div class="hero-card-row">
@@ -662,7 +669,6 @@
                         <span class="tag">Python</span>
                         <span class="tag">PySide6</span>
                     </div>
-                    <!--<a href="https://youtu.be/x3kdy39YmrE" target="_blank" class="project-link" onclick="event.stopPropagation()">↗ view demo</a>-->
                 </a>
 
                 <div class="project-card">
@@ -682,7 +688,6 @@
                         <span class="tag">Android</span>
                         <span class="tag">Agile</span>
                     </div>
-                    <!--<a href="#" class="project-link">↗ view demo (under construction)</a>-->
                 </div>
 
                 <div class="project-card">
@@ -698,7 +703,6 @@
                         <span class="tag">C#</span>
                         <span class="tag">UWP</span>
                     </div>
-                    <!--<a href="#" class="project-link">↗ view demo (under construction)</a>-->
                 </div>
 
                 <div class="project-card">
@@ -716,7 +720,6 @@
                         <span class="tag">Android Studio</span>
                         <span class="tag">Google Play</span>
                     </div>
-                    <!--<a href="#" class="project-link">↗ view demo (under construction)</a>-->
                 </div>
 
             </div>
@@ -786,49 +789,20 @@
 
         </section>
 
-        <!-- SKILLS -->
-        <!--<section class="section" id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-block">
-                <div class="skill-row">
-                    <span class="skill-row-label">Languages</span>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C / C++ / C#</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">SQL / NoSQL</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
+        <!-- RESUME -->
+        <section class="section" id="resume">
+            <h2 class="section-title">Resume</h2>
+            <div class="resume-wrapper">
+                <div class="resume-actions">
+                    <a href="Purdue_Resume_Spring_2026.pdf" download class="btn-primary">↓ Download PDF</a>
+                    <span class="resume-hint">Spring 2026</span>
                 </div>
-                <div class="skill-row">
-                    <span class="skill-row-label">Frameworks</span>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React Native</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">PySide6</span>
-                        <span class="skill-tag">.NET Maui</span>
-                        <span class="skill-tag">ASP.NET</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">Gradle</span>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-row-label">Tools</span>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">Azure DevOps</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Google Play</span>
-                        <span class="skill-tag">Power Automate</span>
-                        <span class="skill-tag">Linux</span>
-                    </div>
+                <div class="resume-embed">
+                    <iframe src="Purdue_Resume_Spring_2026.pdf" title="Matthew Purdue Resume"></iframe>
                 </div>
             </div>
-        </section>-->
+        </section>
+
         <!-- EDUCATION -->
         <section class="section" id="education">
             <h2 class="section-title">Education</h2>
@@ -849,7 +823,6 @@
                         <span class="contact-value">mpurdue0312@gmail.com</span>
                     </div>
                     <span class="contact-arrow">↗</span>
-                </a>
                 </a>
                 <a href="tel:5038711824" class="contact-item">
                     <div class="contact-left">
@@ -881,7 +854,6 @@
 
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-links a');
