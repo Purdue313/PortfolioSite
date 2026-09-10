@@ -163,6 +163,25 @@
             border-radius: 3px;
         }
 
+        .btn-demo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 7px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            transition: opacity 0.15s;
+            margin-top: 8px;
+        }
+
+            .btn-demo:hover {
+                opacity: 0.88;
+            }
+
         .section {
             padding: 52px 0;
             border-bottom: 1px solid var(--border);
@@ -270,6 +289,13 @@
                     opacity: 0.88;
                 }
 
+            .media-item iframe {
+                width: 100%;
+                display: block;
+                aspect-ratio: 16/9;
+                border: none;
+            }
+
         .media-caption {
             padding: 12px 16px;
             font-family: 'IBM Plex Mono', monospace;
@@ -356,7 +382,7 @@
             <div class="meta-row">
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">Spring / Summer 2026</span>
+                    <span class="meta-value">Personal Project</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Team</span>
@@ -383,7 +409,7 @@
             <h2 class="section-title">Demo Video</h2>
             <div class="media-grid wide">
                 <div class="media-item">
-                    <iframe src="https://youtu.be/aBnzKTcZiRM" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/aBnzKTcZiRM" allowfullscreen></iframe>
                     <div class="media-caption">Full walkthrough of the Gear Locker features</div>
                 </div>
             </div>
@@ -413,19 +439,19 @@
             <h2 class="section-title">Screenshots & Previews</h2>
             <div class="media-grid">
                 <div class="media-item">
-                    <img src="Resources/GearLocker/gearlockerhomepage.png" alt="Gear Locker home page showing the full gear grid with category filters and sort controls" />
+                    <img src="Resources/gearLockerHomepage.png" alt="Gear Locker home page showing the full gear grid with category filters and sort controls" />
                     <div class="media-caption">Home page — full gear grid with category filters, sorting, and per-item cards</div>
                 </div>
                 <div class="media-item">
-                    <img src="Resources/GearLocker/gearlockerfiltering.png" alt="Gear Locker filtered to the Hydration category" />
+                    <img src="Resources/gearLockerFiltering.png" alt="Gear Locker filtered to the Hydration category" />
                     <div class="media-caption">Category filtering — narrowed to Hydration items, sorted by category</div>
                 </div>
                 <div class="media-item">
-                    <img src="Resources/GearLocker/gearlockeraddnewitem.png" alt="Add New Gear form showing the Identity and Sports sections" />
+                    <img src="Resources/gearLockerAddItem.png" alt="Add New Gear form showing the Identity and Sports sections" />
                     <div class="media-caption">Add New Gear form — Identity and Sports sections of the intake form</div>
                 </div>
                 <div class="media-item">
-                    <img src="Resources/GearLocker/gearlockercustomfields.png" alt="Custom fields section showing key-value pairs for a ski boot's specs" />
+                    <img src="Resources/gearLockerCustomFields.png" alt="Custom fields section showing key-value pairs for a ski boot's specs" />
                     <div class="media-caption">Custom fields — arbitrary key/value specs added per item without touching the schema</div>
                 </div>
             </div>
