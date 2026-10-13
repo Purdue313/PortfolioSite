@@ -171,12 +171,16 @@
             font-weight: 600;
             padding: 10px 22px;
             border-radius: 7px;
-            background: var(--surface);
-            color: var(--muted);
-            border: 1px solid var(--border);
+            background: var(--accent);
+            color: var(--bg);
             text-decoration: none;
+            transition: opacity 0.15s;
             margin-top: 8px;
         }
+
+            .btn-demo:hover {
+                opacity: 0.88;
+            }
 
         .section {
             padding: 52px 0;
@@ -197,13 +201,9 @@
 
         .media-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 16px;
         }
-
-            .media-grid.wide {
-                grid-template-columns: 1fr;
-            }
 
         .media-item {
             background: var(--surface);
@@ -212,18 +212,12 @@
             overflow: hidden;
         }
 
-            .media-item img, .media-item video {
+            .media-item iframe {
                 width: 100%;
                 display: block;
-                height: auto;
-                object-fit: contain;
-                cursor: zoom-in;
-                transition: opacity 0.15s;
+                aspect-ratio: 16/9;
+                border: none;
             }
-
-                .media-item img:hover {
-                    opacity: 0.88;
-                }
 
         .media-caption {
             padding: 12px 16px;
@@ -232,22 +226,6 @@
             color: var(--muted);
             border-top: 1px solid var(--border);
         }
-
-        .img-placeholder {
-            background: var(--surface2);
-            aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 8px;
-            color: var(--muted);
-        }
-
-            .img-placeholder span {
-                font-family: 'IBM Plex Mono', monospace;
-                font-size: 11px;
-            }
 
         .feature-list {
             display: flex;
@@ -287,52 +265,7 @@
             .container {
                 padding: 0 20px 80px;
             }
-
-            .media-grid {
-                grid-template-columns: 1fr;
-            }
         }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0,0,0,0.92);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-        }
-
-            .lightbox.open {
-                display: flex;
-            }
-
-            .lightbox img {
-                max-width: 92vw;
-                max-height: 90vh;
-                object-fit: contain;
-                border-radius: 8px;
-                box-shadow: 0 0 80px rgba(0,229,255,0.1);
-            }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 28px;
-            font-size: 28px;
-            color: var(--muted);
-            cursor: pointer;
-            font-family: 'IBM Plex Mono', monospace;
-            line-height: 1;
-            transition: color 0.15s;
-        }
-
-            .lightbox-close:hover {
-                color: var(--accent);
-            }
     </style>
 </head>
 <body>
@@ -346,9 +279,9 @@
 
         <div class="project-hero">
             <span class="project-badge">Desktop</span>
-            <h1>Cribbage<br><span>Game</span></h1>
+            <h1>Cribbage Game —<br><span>Desktop Card Game</span></h1>
             <p class="project-desc">
-                A fully functional desktop cribbage game built in C# with UWP, featuring a custom-designed card deck and complete implementation of cribbage game logic — scoring, pegging, hand evaluation, and the crib.
+                A simple, complete cribbage game for Windows, built solo over the summer of 2025. Designed from the ground up with a custom card deck and the full game logic behind it.
             </p>
             <div class="meta-row">
                 <div class="meta-item">
@@ -360,15 +293,26 @@
                     <span class="meta-value">Solo</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Windows Desktop</span>
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Desktop App</span>
                 </div>
             </div>
             <div class="tag-row" style="margin-bottom:24px;">
                 <span class="tag">C#</span>
                 <span class="tag">UWP</span>
             </div>
-            <span class="btn-demo">🚧 Demo Under Construction</span>
+            <a href="https://youtu.be/Ze7ngLqUZ1Y" target="_blank" class="btn-demo">▶ Watch Demo</a>
+        </div>
+
+        <!-- DEMO VIDEO -->
+        <div class="section">
+            <h2 class="section-title">Demo Video</h2>
+            <div class="media-grid">
+                <div class="media-item">
+                    <iframe src="https://www.youtube.com/embed/Ze7ngLqUZ1Y" allowfullscreen></iframe>
+                    <div class="media-caption">Walkthrough of the Cribbage game</div>
+                </div>
+            </div>
         </div>
 
         <!-- FEATURES -->
@@ -376,51 +320,21 @@
             <h2 class="section-title">Technical Highlights</h2>
             <div class="feature-list">
                 <div class="feature-item">
-                    <h4>Complete Game Logic</h4>
-                    <p>Full implementation of cribbage rules including <span class="highlight">hand scoring</span>, pegging phase, crib mechanics, pairs, runs, flushes, nobs, and go rules — all from scratch in C#.</p>
-                </div>
-                <div class="feature-item">
                     <h4>Custom Card Deck</h4>
-                    <p>Independently designed a custom card deck with original artwork/assets, integrated into the UWP application for a polished visual experience.</p>
+                    <p>Designed and implemented the deck independently rather than relying on a pre-built card library, giving full control over how cards are represented, shuffled, and dealt.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>UWP Desktop App</h4>
-                    <p>Built using the Universal Windows Platform framework, delivering a native Windows desktop experience with smooth UI interactions and state management throughout a full game session.</p>
+                    <h4>Complete Game Logic</h4>
+                    <p>Implemented the <span class="highlight">full rules of cribbage</span> from scratch in C#, so the game runs start to finish as a playable, self-contained experience.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Native Windows App with UWP</h4>
+                    <p>Built as a Universal Windows Platform desktop application in C#, working independently from design through implementation.</p>
                 </div>
             </div>
         </div>
 
     </div>
-
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" id="lightbox-close">✕</span>
-        <img id="lightbox-img" src="" alt="">
-    </div>
-
-    <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    document.querySelectorAll('.media-item img').forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.classList.add('open');
-        });
-    });
-
-    document.getElementById('lightbox-close').addEventListener('click', () => {
-        lightbox.classList.remove('open');
-    });
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) lightbox.classList.remove('open');
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') lightbox.classList.remove('open');
-    });
-    </script>
 
 </body>
 </html>
