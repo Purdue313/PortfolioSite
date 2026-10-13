@@ -736,7 +736,9 @@ span.btn-demo {
     gap: 16px;
 }
 
-    .media-grid.wide {
+    /* Single column for video embeds: explicit .wide, or automatic when the grid holds an iframe */
+    .media-grid.wide,
+    .media-grid:has(> .media-item > iframe) {
         grid-template-columns: 1fr;
     }
 
